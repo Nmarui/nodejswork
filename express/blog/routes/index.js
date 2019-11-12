@@ -10,18 +10,16 @@ router.get('/login',function(req,res){
   res.status(200);
   res.sendfile(__dirname+'/login.html');
 });
-router.get('/list',function(req,res){
-  var rq=req.query;
-  console.log(rq);
-  if (rq.username==users[0].username && rq.pwd==users[0].password) {
+router.get('/lic',function(req,res){
+  if (req.query.username==users[0].username && req.query.pwd==users[0].password) {
       res.type('text/html');
       res.status(200);
-      res.sendfile(__dirname+"/lic.html");
+      res.sendfile(__dirname+"/list.html");
   }else {
       res.send("用户名或者密码错误");
   }
 })
-router.get('/list',function(req,res){
+router.get('/rbc',function(req,res){
   res.send(chapterList);
 })
 module.exports = router;
